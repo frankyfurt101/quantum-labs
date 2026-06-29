@@ -19,7 +19,7 @@ window.QL = {
   },
 
   // Professional experience (from LinkedIn). Most-recent first.
-  experienceNote: "By day I lead Workforce Management & capacity analytics — currently driving AI adoption at Gusto. By night, everything else on this page. Computer Engineering background; I bring the same systems-thinking to both.",
+  experienceNote: "By day I lead Workforce Management & capacity analytics — currently driving AI adoption at Gusto. So I built the AI WFM platform I always wished I had. Computer Engineering background; same systems-thinking on both sides of the desk.",
   experience: [
     { role:"Lead WFM Capacity Analyst", company:"Gusto", type:"Full-time", period:"Apr 2026 — Present", duration:"current", location:"California · Remote",
       bullets:[
@@ -51,6 +51,16 @@ window.QL = {
   education: [
     { school:"University of Nevada — Las Vegas", degree:"B.S. Computer Engineering (Computer Technology Engineering)", period:"2019 — 2022" }
   ],
+
+  // Featured highlight — the WFM-pro-builds-AI-WFM-tool story
+  featured: {
+    kicker: "built by a WFM professional",
+    title: "I built my own AI Workforce-Management tool",
+    name: "Celsora",
+    blurb: "Most teams stitch WFM together across a half-dozen tools. I built one platform that runs the whole lifecycle — capacity planning → forecasting → scheduling → intraday → real-time adherence (RTA) — with an agentic AI layer doing the analysis I used to run by hand. The WFM tool I always wished I had, by someone who actually does the job.",
+    tags: ["Capacity → RTA", "Forecasting", "Intraday", "Agentic AI / RAG", "FastAPI · React · Tauri"],
+    url: "https://github.com/frankyfurt101/celsora"
+  },
 
   // Language proficiency (0-100 drives the bar width)
   languages: [
@@ -121,6 +131,10 @@ window.QL = {
   // Projects (all repos). status: active | maintained | archived. fork: true marks contributions to others' projects.
   projects: [
     // --- active ---
+    { name:"Celsora", slug:"celsora", group:"Active", status:"active", featured:true,
+      blurb:"My own AI Workforce-Management platform — the WFM tool I always wished I had, built by someone who actually does the job. Runs the full lifecycle in one place: capacity planning, forecasting, scheduling, intraday, and real-time adherence (RTA), with an agentic RAG/model layer doing the analysis I used to run by hand. Local-first FastAPI + React + Tauri.",
+      tags:["WFM","Capacity → RTA","Forecasting","Intraday","Agentic AI / RAG","FastAPI","React","Tauri"], commits:45, updated:"2026-06-18", started:"2026-06",
+      url:"https://github.com/frankyfurt101/celsora" },
     { name:"DreamWhisper", slug:"dreamwhisper", group:"Active", status:"active",
       blurb:"AI dream journal for iOS — voice-record dreams, get AI summaries, automatic tagging and emotion detection, with reminders to keep the habit.",
       tags:["Swift","SwiftUI","Core Data","Speech","Anthropic / OpenAI"], commits:260, updated:"2026-06-25", started:"2025-09",
@@ -141,10 +155,6 @@ window.QL = {
       blurb:"Offline-first lab & 3D-print inventory for iPhone and iPad with an AI bench co-pilot — drawer-as-unit tracking so you can find any part fast and ask an agent what you can build from what you own.",
       tags:["Swift","SwiftData","CloudKit","AI"], commits:1, updated:"2026-06-28", started:"2026-06",
       url:"https://github.com/frankyfurt101/home-fernance" },
-    { name:"Celsora", slug:"celsora", group:"Active", status:"active",
-      blurb:"Local-first workforce-management platform foundation — FastAPI backend, React web app, Tauri desktop shell, Docker infra, and an agentic RAG/model layer grounded in curated docs.",
-      tags:["Python","FastAPI","React","Tauri","RAG","Docker"], commits:45, updated:"2026-06-18", started:"2026-06",
-      url:"https://github.com/frankyfurt101/celsora" },
     { name:"CRUNCH", slug:"crunch", group:"Active", status:"active",
       blurb:"Native iOS game-studio survival tycoon in the spirit of Game Dev Tycoon — start in a 1982 garage and claw to an empire across ~50 in-game years through crunch, console wars, and hostile publishers.",
       tags:["Swift","SwiftUI","GameDev"], commits:6, updated:"2026-06-28", started:"2026-06",

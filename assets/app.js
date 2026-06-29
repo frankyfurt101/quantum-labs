@@ -92,6 +92,21 @@
     });
   }
 
+  /* ---------- featured spotlight ---------- */
+  function renderFeatured() {
+    const f = Q.featured;
+    const host = $("#featured");
+    if (!f || !host) return;
+    const tags = (f.tags || []).map(t => `<span class="chip">${esc(t)}</span>`).join("");
+    const link = f.url ? `<a class="proj-link" href="${esc(f.url)}" target="_blank" rel="noopener">→ open on github</a>` : "";
+    host.className = "featured-spot reveal";
+    host.innerHTML =
+      `<div class="feat-kicker">★ ${esc(f.kicker)}</div>` +
+      `<h3 class="feat-title">${esc(f.title)} <span class="feat-name">— ${esc(f.name)}</span></h3>` +
+      `<p class="feat-blurb">${esc(f.blurb)}</p>` +
+      `<div class="feat-foot"><div class="chips">${tags}</div>${link}</div>`;
+  }
+
   /* ---------- experience + education ---------- */
   function renderExperience() {
     if (Q.experienceNote) $("#expNote").textContent = Q.experienceNote;
@@ -163,14 +178,15 @@
   }
 
   function projRow(p) {
-    const wrap = el("div", "proj reveal");
+    const wrap = el("div", "proj reveal" + (p.featured ? " featured" : ""));
     const perms = p.fork ? "lrwxr-xr-x" : "drwxr-xr-x";
     const tagsInline = p.tags.slice(0, 3).map(t => `<span class="tag-mini">${esc(t)}</span>`).join("");
     const fork = p.fork ? `<span class="fork-badge">fork</span>` : "";
+    const feat = p.featured ? `<span class="feat-badge">★ featured</span>` : "";
     const head = el("div", "proj-head");
     head.innerHTML =
       `<span class="perm"><span class="d">${perms[0]}</span>${perms.slice(1)}</span>` +
-      `<span class="proj-id"><span class="proj-name"><span class="arrow">▸</span>${esc(p.name)}/</span>${fork}<span class="proj-tags-inline">${tagsInline}</span></span>` +
+      `<span class="proj-id"><span class="proj-name"><span class="arrow">▸</span>${esc(p.name)}/</span>${feat}${fork}<span class="proj-tags-inline">${tagsInline}</span></span>` +
       `<span class="proj-meta"><span class="status ${p.status}"><span class="dot"></span>${p.status}</span><span>${(p.commits || 0)} commits</span><span>upd ${esc(p.updated)}</span></span>`;
     const body = el("div", "proj-body");
     const link = p.url
@@ -275,7 +291,7 @@
 
   /* ---------- init ---------- */
   function init() {
-    renderStats(); renderAbout(); renderExperience(); renderLangs(); renderSkills();
+    renderStats(); renderAbout(); renderFeatured(); renderExperience(); renderLangs(); renderSkills();
     renderFilters(); renderProjects(); renderHomebrew(); renderEngineering(); renderContact();
     crtToggle(); navSpy(); fillBars(); observeReveals();
     if (reduce) { bootText.textContent = bootLines.join("\n"); endBoot(); }
