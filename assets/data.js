@@ -14,7 +14,7 @@ window.QL = {
     ],
     github: "https://github.com/frankyfurt101",
     email: "fernandezfranky3@gmail.com",
-    location: "Arizona, USA"
+    location: "Los Angeles, California"
   },
 
   // Language proficiency (0-100 drives the bar width)
