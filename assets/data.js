@@ -13,9 +13,44 @@ window.QL = {
       "consoles for the homebrew community, and like understanding a system all the way down to the PCB."
     ],
     github: "https://github.com/frankyfurt101",
+    linkedin: "https://www.linkedin.com/in/franky-fernandez-339242158/",
     email: "fernandezfranky3@gmail.com",
     location: "Los Angeles, California"
   },
+
+  // Professional experience (from LinkedIn). Most-recent first.
+  experienceNote: "By day I lead Workforce Management & capacity analytics — currently driving AI adoption at Gusto. By night, everything else on this page. Computer Engineering background; I bring the same systems-thinking to both.",
+  experience: [
+    { role:"Lead WFM Capacity Analyst", company:"Gusto", type:"Full-time", period:"Apr 2026 — Present", duration:"current", location:"California · Remote",
+      bullets:[
+        "Leading the integration of AI into workforce forecasting, scheduling, and intraday operations — turning WFM from reactive support into predictive strategy.",
+        "Designing scalable frameworks, operational pipelines, and governance that improve planning accuracy and decision-making at scale."
+      ], tags:["AI adoption","Forecasting","Governance","WFM"] },
+    { role:"Workforce Program Manager", company:"TikTok USDS Joint Venture", type:"Full-time", period:"May 2024 — Apr 2026", duration:"2 yrs", location:"Culver City, CA · Hybrid",
+      bullets:[
+        "Managed multiple international BPOs across a full metric set; project-managed new programs and ongoing initiatives.",
+        "Analyzed and audited SQL data for weekly, monthly, and quarterly business reviews (WBR / MBR / QBR), partnering across every cross-functional team."
+      ], tags:["Program Management","SQL","BPO","Business Reviews"] },
+    { role:"Senior Workforce Management Admin", company:"DoorDash", type:"Full-time", period:"Feb 2022 — Jun 2024", duration:"2 yrs 5 mos", location:"Tempe, AZ · Remote",
+      bullets:[
+        "Led a small team and delegated daily tasks and projects; project-managed Verint rollouts.",
+        "Built dashboards from audited SQL data and set up WFM training across departments."
+      ], tags:["SQL","Dashboards","Verint","Team Lead"] },
+    { role:"Workforce Scheduling Analyst", company:"Instacart", type:"Full-time", period:"Sep 2020 — May 2024", duration:"3 yrs 9 mos", location:"Remote",
+      bullets:[
+        "Managed multiple BPOs across capacity and intraday; ran daily meetings and set KPIs.",
+        "Owned scheduling and forecasting (DoD / WoW / MoM) using Verint, Snowflake, Periscope, and Blazer."
+      ], tags:["Scheduling","Forecasting","Snowflake","KPIs"] },
+    { role:"Workforce Management Analyst", company:"American Homes 4 Rent", type:"Full-time", period:"Sep 2018 — Jun 2020", duration:"1 yr 10 mos", location:"Las Vegas, NV",
+      bullets:[
+        "Ran day-to-day operations on IEX WFM; monitored service levels to offer VTO / OT and tracked efficiency and attendance.",
+        "Built long- and short-term forecast models; handled call scripting and routing in Studio."
+      ], tags:["IEX WFM","Forecasting","Service Level"] }
+  ],
+
+  education: [
+    { school:"University of Nevada — Las Vegas", degree:"B.S. Computer Engineering (Computer Technology Engineering)", period:"2019 — 2022" }
+  ],
 
   // Language proficiency (0-100 drives the bar width)
   languages: [
@@ -58,6 +93,11 @@ window.QL = {
     { group: "Security & Reverse Engineering", icon: "⊘", items: [
       "Attack-surface reduction", "SSO / MFA hardening", "Request signing (P-256 / Secure Enclave)",
       "Console security research", "Homebrew enablement"
+    ]},
+    { group: "Workforce Analytics & Ops", icon: "▤", items: [
+      "Workforce Management (WFM)", "Capacity planning", "Forecasting", "Intraday operations",
+      "SQL", "Snowflake", "Verint", "IEX WFM", "BPO management", "Governance · WBR / MBR / QBR",
+      "AI adoption in operations"
     ]}
   ],
 

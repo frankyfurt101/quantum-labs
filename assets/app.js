@@ -50,6 +50,7 @@
     $("#role").textContent = Q.profile.role;
     $("#tagline").textContent = Q.profile.tagline;
     $("#githubBtn").href = Q.profile.github;
+    if (Q.profile.linkedin) $("#linkedinBtn").href = Q.profile.linkedin;
     const cmd = "whoami && cat banner.txt";
     const target = $("#heroCmd");
     if (reduce) { target.textContent = cmd; return; }
@@ -88,6 +89,38 @@
     Q.profile.bio.forEach((p, i) => {
       const para = el("p", i === 0 ? "lead" : null, esc(p));
       c.appendChild(para);
+    });
+  }
+
+  /* ---------- experience + education ---------- */
+  function renderExperience() {
+    if (Q.experienceNote) $("#expNote").textContent = Q.experienceNote;
+    const tl = $("#timeline");
+    (Q.experience || []).forEach(x => {
+      const item = el("div", "exp reveal");
+      const cur = x.duration === "current";
+      const bullets = x.bullets.map(b => `<li>${esc(b)}</li>`).join("");
+      const tags = (x.tags || []).map(t => `<span class="chip">${esc(t)}</span>`).join("");
+      const dur = x.duration && x.duration !== "current" ? ` · ${esc(x.duration)}` : "";
+      item.innerHTML =
+        `<div class="exp-dot${cur ? " cur" : ""}"></div>` +
+        `<div class="exp-card">` +
+          `<div class="exp-top"><span class="exp-role">${esc(x.role)}</span>` +
+          `<span class="exp-period">${esc(x.period)}${dur}</span></div>` +
+          `<div class="exp-co"><span class="exp-coname">${esc(x.company)}</span>` +
+          `<span class="exp-meta">${esc(x.type)} · ${esc(x.location)}</span></div>` +
+          `<ul class="exp-bullets">${bullets}</ul>` +
+          `<div class="chips">${tags}</div>` +
+        `</div>`;
+      tl.appendChild(item);
+    });
+    const edu = $("#edu");
+    (Q.education || []).forEach(e => {
+      const c = el("div", "edu-card reveal");
+      c.innerHTML = `<div class="edu-top"><span class="edu-school">${esc(e.school)}</span>` +
+        `<span class="exp-period">${esc(e.period)}</span></div>` +
+        `<div class="edu-degree">${esc(e.degree)}</div>`;
+      edu.appendChild(c);
     });
   }
 
@@ -187,6 +220,7 @@
     const p = Q.profile;
     c.innerHTML =
       `<div class="row"><span class="k">github</span><a href="${esc(p.github)}" target="_blank" rel="noopener">${esc(p.github.replace('https://', ''))}</a></div>` +
+      (p.linkedin ? `<div class="row"><span class="k">linkedin</span><a href="${esc(p.linkedin)}" target="_blank" rel="noopener">${esc(p.linkedin.replace('https://www.', '').replace(/\/$/, ''))}</a></div>` : "") +
       `<div class="row"><span class="k">email</span><a href="mailto:${esc(p.email)}">${esc(p.email)}</a></div>` +
       `<div class="row"><span class="k">location</span><span>${esc(p.location)}</span></div>` +
       `<div class="row"><span class="k">status</span><span style="color:var(--green)">● open to interesting problems</span></div>`;
@@ -241,7 +275,7 @@
 
   /* ---------- init ---------- */
   function init() {
-    renderStats(); renderAbout(); renderLangs(); renderSkills();
+    renderStats(); renderAbout(); renderExperience(); renderLangs(); renderSkills();
     renderFilters(); renderProjects(); renderHomebrew(); renderEngineering(); renderContact();
     crtToggle(); navSpy(); fillBars(); observeReveals();
     if (reduce) { bootText.textContent = bootLines.join("\n"); endBoot(); }
