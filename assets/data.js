@@ -4,7 +4,7 @@ window.QL = {
     brand: "QUANTUM LABS",
     name: "Franky Fernandez",
     handle: "frankyfurt101",
-    role: "Full-stack · Systems · Hardware Engineer",
+    role: "Software Engineer · Workforce Management · AI & Systems",
     tagline: "I build software, the systems it runs on, and the bare metal underneath.",
     bio: [
       "Self-taught engineer working top to bottom — from SwiftUI apps and FastAPI backends, " +
@@ -21,11 +21,13 @@ window.QL = {
   // Professional experience (from LinkedIn). Most-recent first.
   experienceNote: "By day I lead Workforce Management & capacity analytics — currently driving AI adoption at Gusto. So I built the AI WFM platform I always wished I had. Computer Engineering background; same systems-thinking on both sides of the desk.",
   experience: [
-    { role:"Lead WFM Capacity Analyst", company:"Gusto", type:"Full-time", period:"Apr 2026 — Present", duration:"current", location:"California · Remote",
+    { role:"Lead WFM Capacity Analyst · Software Engineering", company:"Gusto", type:"Full-time", period:"Apr 2026 — Present", duration:"current", location:"California · Remote",
       bullets:[
-        "Leading the integration of AI into workforce forecasting, scheduling, and intraday operations — turning WFM from reactive support into predictive strategy.",
-        "Designing scalable frameworks, operational pipelines, and governance that improve planning accuracy and decision-making at scale."
-      ], tags:["AI adoption","Forecasting","Governance","WFM"] },
+        "Driving AI adoption across workforce forecasting, scheduling, and intraday operations — turning WFM from reactive support into predictive strategy.",
+        "Building the internal software behind it: a multi-module WFM data platform (Node + MySQL + Python), a FastAPI/React service-metrics dashboard retiring a legacy tool, and automated executive reporting across Salesforce, Snowflake, and contact-center systems.",
+        "Designed a 12-stage multi-agent build pipeline with safety gates that — in a 16-build benchmark — uniquely caught a hardcoded credential and a no-dry-run delete script; packaged it as an installable skill with a teammate beta.",
+        "Governance & security as first-class: dual-approval production gates, auto-scored readiness checks, CVE remediation, and secret scrubbing."
+      ], tags:["WFM","AI adoption","FastAPI · React · Node","Kubernetes","Multi-agent","Governance"] },
     { role:"Workforce Program Manager", company:"TikTok USDS Joint Venture", type:"Full-time", period:"May 2024 — Apr 2026", duration:"2 yrs", location:"Culver City, CA · Hybrid",
       bullets:[
         "Managed multiple international BPOs across a full metric set; project-managed new programs and ongoing initiatives.",
@@ -81,7 +83,14 @@ window.QL = {
     { group: "AI & Agent Systems", icon: "◈", items: [
       "Multi-agent orchestration", "LangGraph", "LangChain", "RAG pipelines",
       "Qdrant", "Chroma", "Ollama / local LLMs", "Claude Code skills & subagents",
+      "Model Context Protocol (MCP)", "Eval / benchmark design",
       "Phoenix observability / tracing", "Model benchmarking", "Agent design & guardrails"
+    ]},
+    { group: "Platform & Data Engineering", icon: "⬡", items: [
+      "Kubernetes", "Backstage", "Helm", "CI/CD & GitOps", "FastAPI", "React / Next.js",
+      "Node.js", "MySQL", "PostgreSQL", "Snowflake", "Salesforce (SOQL)", "Contact-center APIs",
+      "Multi-tier caching", "Schema migrations / ETL", "D3.js", "OAuth / SSO",
+      "AWS Secrets Manager", "Datadog", "Playwright", "CVE remediation"
     ]},
     { group: "Systems & Linux", icon: "▮", items: [
       "Linux", "Kali", "Debian", "Raspberry Pi", "Docker", "Portainer",
@@ -221,6 +230,16 @@ window.QL = {
 
   // Engineering log — real homelab / AI / security work, high level, no secrets.
   engineering: [
+    { area:"Software Engineering · Gusto", icon:"◆", entries:[
+      "Designed and shipped a multi-module internal WFM data platform (Node + MySQL + Python) — project registry, apps directory, live data views, dashboard launcher, audit — deployed through an internal Backstage-based platform with a 25% → 100% canary, passing 74/74 QA and security checks (TLS, cache, XSS).",
+      "Built a governance-aware production storefront with a dual-approval gate and an auto-scored readiness badge that hard-blocks promotion until every check passes; imported 45 projects + 17 catalog entries via API.",
+      "Drove a FastAPI/React service-metrics dashboard to parity with a legacy tool (6 of 7 parity gaps across a 30+ PR arc), migrated data sources onto contact-center APIs, and shipped a self-healing migration job — now powering a daily executive readout (SLOs, forecast accuracy, satisfaction).",
+      "Designed a 12-stage multi-agent build pipeline (intake → planner → coder → tester → parallel review board → audit); in a 16-build benchmark it tied 32/32 on correctness but uniquely caught a hardcoded credential and a no-dry-run delete script. Packaged as an installable skill with a ~7–8-person beta.",
+      "Root-caused a production outage that stranded 45 automated agents on auth errors — traced via a repro harness and five diagnostic angles to an unset secret and a secrets-sync race (not a code bug) — then merged CVE + hardening fixes and documented the runbook.",
+      "Automated a daily Salesforce → HTML + Excel backlog report (30+ scheduled runs) tracking near-100% closure across 6,000–7,000-item inventories, plus a snapshot-publish reporting architecture refreshed 4× daily.",
+      "Published an interactive D3.js architecture mindmap of a large platform spec (44 functions, 309 capabilities, 100 dependencies) and surfaced 118 review findings — exposing critical coverage gaps reviewed directly with leadership.",
+      "Remediated security risk across the team's repos: fixed a dependency CVE, scrubbed hardcoded OAuth secrets pre-push, and standardized review-gated, secret-scanning workflows for non-engineer teammates."
+    ]},
     { area:"Homelab & Infrastructure", icon:"▦", entries:[
       "Architected and operate a 9+ node self-hosted homelab — bare-metal Linux servers, two NAS units, and a Raspberry Pi fleet under unified remote management.",
       "Manage 30+ containerized service stacks across three Docker environments, deployed via API / infrastructure-as-code with secrets injected as managed env vars — never plaintext on disk.",
